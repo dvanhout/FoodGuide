@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+
+{% block body %}
+
+    <body>
+        <div class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <div class="navbar-brand">
+                    <h4>The recommended daily intake by food group:
+                        <br />
+                        <small class="text-info">Gender: {{ gender }}, Age category: {{ age_range }}</small>
+                    </h4>
+                </div>
+
+                <div class="btn-group">
+                    <a class="btn btn-outline-light" href="">See a new list</a>
+                    <a class="btn btn-info" href="/">Go Back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding-top: 120px; padding-bottom: 50px">
+            <div class="panel-body">
+                <ul class="list-group">
+
+
+                    {% for fgid in food_group %}
+                        <br />
+                        <h5>{{ food_group[fgid] }} - {{ servings[fgid] }} Servings</h5>
+
+                        {% for i in range(0, foods_list[fgid]|length) %}
+                            {% for k in foods_list[fgid][i] %}
+                                <li class="list-group-item">{{ k + ' (' + foods_list[fgid][i][k]|safe + ')' }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+
+
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+
+{% endblock body %}

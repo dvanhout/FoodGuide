@@ -1,0 +1,19 @@
+{"foodgroups": [
+  {"fgid":"vf","foodgroup":"Vegetables and Fruit","categories": [
+    {"fgcat_id":"0","fgcat":"Non dark green or orange vegetable"},
+    {"fgcat_id":"1","fgcat":"Dark green vegetable"},
+    {"fgcat_id":"2","fgcat":"Orange vegetable"}
+  ]},
+  {"fgid":"gr","foodgroup":"Grains","categories":[
+    {"fgcat_id":"3","fgcat":"Whole grain"},
+    {"fgcat_id":"4","fgcat":"Non whole grain"}
+  ]},
+  {"fgid":"mi","foodgroup":"Milk and Alternatives","categories": [
+    {"fgcat_id":"5","fgcat":"Milk"},
+    {"fgcat_id":"6","fgcat":"Milk Alternatives"}
+  ]},
+  {"fgid":"me","foodgroup":"Meat and Alternatives","categories":[
+    {"fgcat_id":"7","fgcat":"Meat Alternatives"},
+    {"fgcat_id":"8","fgcat":"Meat, fish, poultry and shellfish"}
+  ]}
+]}

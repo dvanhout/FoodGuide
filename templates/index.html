@@ -1,0 +1,74 @@
+{% block header %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Food Guide</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- libraries for bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+    </head>
+
+{% endblock header %}
+
+
+{% block body %}
+
+    <body>
+        <div class="row">
+            <div class="col-md-12 jumbotron" style="background-image: url('{{ url_for('static', filename='blueberries.jpg') }}'); color: white;
+                    background-attachment: fixed; min-height:300px; ">
+                <div class="text-center">
+                    <h1 class="display-3 text-danger">Recommended Daily Food Intake</h1>
+                    <h3 class="display-4">From the Canada Food Guide</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h6 class="text-primary">Choose from the options below to see recommended daily food intakes from Canada's Food Guide</h6>
+            <form class="form-horizontal" action="/foodguide" method="get">
+                <div class="form-group">
+                    <h5>Select one:</h5>
+                </div>
+
+                <div class="form-group">
+                    <div class="radio">
+                        <label for="rad_male"><input type="radio" id="rad_male" name="gender" value="Male" checked> Male</label>
+                    </div>
+                    <div class="radio">
+                        <label for="rad_female"><input type="radio" id="rad_female" name="gender" value="Female"> Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5><label for="sel_age">Select an age range:</label></h5>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control" id="sel_age" name="age_range">
+
+                        {% for range in ages_list %}
+                            <option value='{{ range }}'>{{ range }}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+
+
+                <div class="form-group ">
+                    <input type="submit" class="btn btn-primary" value="See the results">
+                </div>
+
+            </form>
+        </div>
+    </body>
+    </html>
+
+{% endblock body %}
