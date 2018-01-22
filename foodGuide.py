@@ -77,7 +77,10 @@ def clean_json(json_data_file):
     *****************************************************************"""
 
     # get the data
-    json_data = json.load(open(json_data_file))
+    try:
+        json_data = json.load(open(json_data_file))
+    except (FileNotFoundError, Exception):
+        return render_template('error.html')
 
     # build list for return
     lst = []
